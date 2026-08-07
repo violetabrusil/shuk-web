@@ -84,7 +84,48 @@ public/
 6. **Dominio real.** El sitio usa `https://www.shuktech.com` como URL base
    (`astro.config.mjs` → `site`) — actualizar si el dominio final es otro.
 
-## Sobre Tailwind
+## Flujo de trabajo con Git
+
+El repositorio tiene dos ramas principales:
+
+- **`main`** — producción. Lo que está aquí es lo que está publicado en vivo. Nadie hace commits
+  directos a esta rama.
+- **`development`** — integración. Aquí es donde el equipo trabaja día a día y se prueban los
+  cambios antes de que lleguen a producción.
+
+Flujo recomendado para cualquier cambio nuevo:
+
+```bash
+# 1. Parado en development, actualizado
+git checkout development
+git pull
+
+# 2. Crear una rama para la tarea específica
+git checkout -b feature/nombre-del-cambio
+
+# 3. Trabajar, hacer commits normalmente
+git add .
+git commit -m "Describe el cambio"
+
+# 4. Subir la rama y abrir un Pull Request hacia development (no hacia main)
+git push -u origin feature/nombre-del-cambio
+```
+
+Cuando `development` esté probado y listo para publicarse, se abre un Pull Request de
+`development` → `main`. Ese merge es lo que dispara el despliegue a producción (ver sección de
+despliegue más abajo — Vercel/Netlify hacen esto automáticamente por rama).
+
+## Cómo usar esto
+
+- **Deploy Preview automático para `development`**: tanto Vercel como Netlify generan una URL de
+  preview por cada push a cualquier rama que no sea la de producción — así el equipo (o marketing)
+  puede revisar los cambios en `development` antes de aprobarlos, sin tocar el sitio en vivo.
+- **`main` como rama de producción**: al configurar el proyecto en Vercel/Netlify, se marca `main`
+  como "Production Branch" — cada merge a `main` publica automáticamente en el dominio real.
+- Opcional pero recomendado: en GitHub, ir a **Settings → Branches → Branch protection rules** y
+  proteger `main` para que solo se pueda actualizar vía Pull Request (no con push directo). Esto
+  hay que configurarlo desde la cuenta de GitHub del proyecto — no es algo que venga ya activado.
+
 
 Tailwind está instalado y configurado con los tokens de marca (`tailwind.config.mjs` →
 `shuk-dark`, `shuk-orange`, etc.), pero el CSS existente del sitio **no se migró a utilidades de
