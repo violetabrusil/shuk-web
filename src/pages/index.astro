@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import SectorStrip from '../components/SectorStrip.astro';
+import QuienesSomos from '../components/QuienesSomos.astro';
+import Hub from '../components/Hub.astro';
+import QueHacemos from '../components/QueHacemos.astro';
+import ComoTrabajamos from '../components/ComoTrabajamos.astro';
+import Industrias from '../components/Industrias.astro';
+// import Cartics from '../components/Cartics.astro'; // ver nota junto a <Resultados /> abajo
+import Resultados from '../components/Resultados.astro';
+import FAQ from '../components/FAQ.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import CookieBar from '../components/CookieBar.astro';
+---
+<Layout>
+  <Header />
+  <main id="main">
+    <Hero />
+    <SectorStrip />
+    <QuienesSomos />
+    <Hub />
+    <QueHacemos />
+    <ComoTrabajamos />
+    <Industrias />
+    {
+      /*
+        <Cartics /> — sección "05/06 · Producto destacado" desactivada
+        temporalmente a pedido del cliente (ago 2026). El componente sigue
+        completo en src/components/Cartics.astro.
+        Para reactivar: descomentar el import de arriba y la línea <Cartics />
+        aquí, y renumerar los eyebrows que siguen: Resultados 06→07,
+        Preguntas frecuentes 07→08, Hablemos 08→09.
+      */
+    }
+    <Resultados />
+    <FAQ />
+    <Contact />
+  </main>
+  <Footer />
+  <CookieBar />
+</Layout>

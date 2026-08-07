@@ -1,0 +1,45 @@
+---
+---
+<header class="site-header">
+  <nav class="nav" aria-label="Navegación principal">
+    <a href="#top" class="nav-logo" aria-label="SHUK — Inicio">
+      <img src="/images/logo-secondary.png" alt="SHUK — Tecnología que amplifica" width="180" height="20">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#quienes-somos">Quiénes somos</a></li>
+      <li><a href="#hub">El Hub</a></li>
+      <li><a href="#que-hacemos">Qué hacemos</a></li>
+      <li><a href="#como-trabajamos">Cómo trabajamos</a></li>
+      <li><a href="#industrias">Industrias</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contacto" class="btn btn-primary">Hablemos</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMobile" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="#quienes-somos">Quiénes somos</a>
+    <a href="#hub">El Hub</a>
+    <a href="#que-hacemos">Qué hacemos</a>
+    <a href="#como-trabajamos">Cómo trabajamos</a>
+    <a href="#industrias">Industrias</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</header>
+
+<script>
+  const navToggle = document.getElementById('navToggle') as HTMLButtonElement;
+  const navMobile = document.getElementById('navMobile') as HTMLElement;
+  navToggle.addEventListener('click', () => {
+    const open = navMobile.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navMobile.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => {
+      navMobile.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

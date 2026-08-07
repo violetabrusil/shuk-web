@@ -1,0 +1,41 @@
+---
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <img src="/images/logo-wordmark.png" alt="SHUK">
+        <p>Tecnología que amplifica. Software a medida, consultoría tecnológica y automatización para negocios que quieren crecer.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#quienes-somos">Quiénes somos</a></li>
+          <li><a href="#hub">El Hub</a></li>
+          <li><a href="#que-hacemos">Qué hacemos</a></li>
+          <li><a href="#industrias">Industrias</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:shukcompany@gmail.com">shukcompany@gmail.com</a></li>
+          <li><a href="https://www.shuktech.com" target="_blank" rel="noopener">www.shuktech.com</a></li>
+          <li><span>@Shuk.ec</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <p class="made-with">Hecho con <span class="heart">🧡</span> en Quito, Ecuador</p>
+        <p class="legal-line">© <span id="year"></span> SHUK TECH S.A.S. · RUC 1793223785001 — empresa legalmente constituida en Ecuador. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const yearEl = document.getElementById('year') as HTMLElement;
+  yearEl.textContent = String(new Date().getFullYear());
+</script>

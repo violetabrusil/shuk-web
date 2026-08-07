@@ -1,0 +1,25 @@
+---
+---
+<div class="strip">
+  <div class="strip-label">Diseñamos tecnología para negocios en</div>
+  <div class="marquee">
+    <div class="marquee-track" id="marqueeTrack">
+      <span class="chip"><span class="dot"></span>Automotriz</span>
+      <span class="chip"><span class="dot"></span>Salud</span>
+      <span class="chip"><span class="dot"></span>Educación</span>
+      <span class="chip"><span class="dot"></span>Gobierno</span>
+      <span class="chip"><span class="dot"></span>Retail</span>
+      <span class="chip"><span class="dot"></span>Gastronomía</span>
+      <span class="chip"><span class="dot"></span>Bienes raíces</span>
+      <span class="chip"><span class="dot"></span>Mascotas</span>
+      <span class="chip"><span class="dot"></span>Logística y transporte</span>
+      <span class="chip"><span class="dot"></span>Financiero</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Duplicamos el contenido para que el loop del marquee sea continuo (sin salto visible).
+  const track = document.getElementById('marqueeTrack') as HTMLElement;
+  track.innerHTML += track.innerHTML;
+</script>
