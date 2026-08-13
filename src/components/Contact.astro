@@ -1,54 +1,151 @@
 ---
+
 ---
+
 <section class="section on-dark block-texture" id="contacto">
   <div class="container">
     <div class="contact">
       <div>
-        <div class="eyebrow"><span class="num">08</span> Hablemos</div>
+        <div class="eyebrow"><span class="num">09</span> Hablemos</div>
         <h2>Hablemos sobre el futuro de tu negocio.</h2>
-        <p style="font-size:15.5px; color:var(--nimbus-2); opacity:.85; max-width:44ch;">Cuéntanos en qué está tu operación hoy. Nosotros nos encargamos de entenderla antes de proponerte nada.</p>
+        <p
+          style="font-size:15.5px; color:var(--nimbus-2); opacity:.85; max-width:44ch;"
+        >
+          Cuéntanos en qué está tu operación hoy. Nosotros nos encargamos de
+          entenderla antes de proponerte nada.
+        </p>
 
         <div class="contact-info">
           <div class="item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
-            <div><span class="lbl">Email</span><a href="mailto:shukcompany@gmail.com">shukcompany@gmail.com</a></div>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              ><rect x="2" y="4" width="20" height="16" rx="2"></rect><path
+                d="M22 6l-10 7L2 6"></path></svg
+            >
+            <div>
+              <span class="lbl">Email</span><a
+                href="mailto:shuktechcompany@gmail.com"
+                >shuktechcompany@gmail.com</a
+              >
+            </div>
           </div>
           <div class="item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>
-            <div><span class="lbl">Website</span><a href="https://www.shuktech.com" target="_blank" rel="noopener">www.shuktech.com</a></div>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              ><circle cx="12" cy="12" r="10"></circle><path
+                d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"
+              ></path></svg
+            >
+            <div>
+              <span class="lbl">Website</span><a
+                href="https://www.shuktech.com"
+                target="_blank"
+                rel="noopener">www.shuktech.com</a
+              >
+            </div>
           </div>
           <div class="item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
-            <div><span class="lbl">Social media</span><span class="val">@Shuk.ec</span></div>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              ><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle
+                cx="12"
+                cy="12"
+                r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg
+            >
+            <div>
+              <span class="lbl">Social media</span><span class="val"
+                >shuktec</span
+              >
+            </div>
           </div>
         </div>
       </div>
 
       <div class="form-card reveal">
-        <div class="form-status" id="formStatus" role="status">¡Gracias! Recibimos tu mensaje y te contactaremos pronto.</div>
-        <form id="contactForm" novalidate>
+        <form
+          id="contactForm"
+          novalidate
+          action="https://formspree.io/f/xwleqkpw"
+        >
           <!-- Honeypot anti-spam: campo oculto, invisible para personas -->
-          <div class="hp"><label for="empresa2">No llenar</label><input type="text" id="empresa2" name="empresa2" tabindex={-1} autocomplete="off"></div>
+          <div class="hp">
+            <label for="empresa2">No llenar</label><input
+              type="text"
+              id="empresa2"
+              name="empresa2"
+              tabindex={-1}
+              autocomplete="off"
+            />
+          </div>
 
           <div class="field">
             <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" required autocomplete="name">
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              required
+              autocomplete="name"
+            />
           </div>
           <div class="field">
             <label for="correo">Correo</label>
-            <input type="email" id="correo" name="correo" required autocomplete="email">
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              required
+              autocomplete="email"
+            />
           </div>
           <div class="field">
-            <label for="empresa">Empresa <span style="font-weight:400; text-transform:none;">(opcional)</span></label>
-            <input type="text" id="empresa" name="empresa" autocomplete="organization">
+            <label for="telefono">Teléfono</label>
+            <input
+              type="tel"
+              id="telefono"
+              name="telefono"
+              pattern="(0|\+593)9[0-9]{8}"
+              title="10 dígitos empezando en 09 (o con código +593)"
+            />
+          </div>
+          <div class="field">
+            <label for="empresa"
+              >Empresa <span style="font-weight:400; text-transform:none;"
+                >(opcional)</span
+              ></label
+            >
+            <input
+              type="text"
+              id="empresa"
+              name="empresa"
+              autocomplete="organization"
+            />
           </div>
           <div class="field">
             <label for="mensaje">Cuéntanos sobre tu negocio</label>
             <textarea id="mensaje" name="mensaje" required></textarea>
           </div>
           <div class="form-foot">
-            <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+            <button type="submit" class="btn btn-primary">Enviar mensaje</button
+            >
             <span class="form-note">Respondemos en 1–2 días hábiles.</span>
+          </div>
+          <div
+            class="form-status"
+            id="formStatus"
+            role="status"
+            aria-live="polite"
+          >
+            ¡Gracias! Recibimos tu mensaje y te contactaremos pronto.
           </div>
         </form>
       </div>
@@ -57,24 +154,55 @@
 </section>
 
 <script>
-  // Formulario de contacto — handler de demo.
-  // NOTA PARA EL EQUIPO DE DESARROLLO:
-  // Este formulario no está conectado a ningún backend todavía.
-  // Para producción, conectar a Formspree/Getform o a un endpoint propio
-  // (ver references/astro-handoff.md de la skill landing-page-builder):
-  //   fetch('https://formspree.io/f/TU_ID', { method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form) })
-  const form = document.getElementById('contactForm') as HTMLFormElement;
-  const status = document.getElementById('formStatus') as HTMLElement;
-  const honeypot = document.getElementById('empresa2') as HTMLInputElement;
-  const nombreInput = document.getElementById('nombre') as HTMLInputElement;
+  const form = document.getElementById("contactForm") as HTMLFormElement;
+  const status = document.getElementById("formStatus") as HTMLElement;
+  const honeypot = document.getElementById("empresa2") as HTMLInputElement;
+  const nombreInput = document.getElementById("nombre") as HTMLInputElement;
+  const camposValidables = form.querySelectorAll(
+    ".field input, .field textarea",
+  );
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    if (honeypot.value !== '') return; // honeypot: probablemente spam
-    if (!form.checkValidity()) { form.reportValidity(); return; }
-    status.classList.add('ok');
-    status.textContent = `¡Gracias, ${nombreInput.value.split(' ')[0]}! Recibimos tu mensaje y te contactaremos pronto.`;
-    form.reset();
-    status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (honeypot.value !== "") return;
+
+    status.classList.remove("ok", "error");
+    camposValidables.forEach((el) => el.classList.remove("invalid"));
+
+    if (!form.checkValidity()) {
+      camposValidables.forEach((el) => {
+        if (!(el as HTMLInputElement).checkValidity())
+          el.classList.add("invalid");
+      });
+      status.classList.add("error");
+      status.textContent =
+        "Revisa los campos marcados: falta información o el formato no es válido.";
+      status.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      return;
+    }
+
+    try {
+      const response = await fetch("https://formspree.io/f/xwleqkpw", {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        status.classList.add("ok");
+        status.textContent = `¡Gracias, ${nombreInput.value.split(" ")[0]}! Recibimos tu mensaje y te contactaremos pronto.`;
+        form.reset();
+      } else {
+        status.classList.add("error");
+        status.textContent =
+          "Hubo un problema al enviar el mensaje. Intenta de nuevo.";
+      }
+    } catch {
+      status.classList.add("error");
+      status.textContent =
+        "Hubo un problema al enviar el mensaje. Intenta de nuevo.";
+    }
+
+    status.scrollIntoView({ behavior: "smooth", block: "nearest" });
   });
 </script>
