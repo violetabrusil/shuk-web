@@ -81,7 +81,7 @@ public/
 5. **Analítica no está instalada.** Agregar Google Analytics 4 / Meta Pixel en
    `src/layouts/Layout.astro` cuando el sitio esté listo para medir tráfico real.
 
-6. **Dominio real.** El sitio usa `https://www.shuktech.com` como URL base
+6. **Dominio real.** El sitio usa `https://www.shuktec.com` como URL base
    (`astro.config.mjs` → `site`) — actualizar si el dominio final es otro.
 
 ## Flujo de trabajo con Git

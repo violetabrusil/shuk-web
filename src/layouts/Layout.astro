@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 export interface Props {
   title?: string;
@@ -7,84 +7,118 @@ export interface Props {
 }
 
 const {
-  title = 'SHUK — Tecnología que amplifica | Software a medida, ERPs, CRMs y consultoría tecnológica',
-  description = 'SHUK diseña y desarrolla software a medida — ERPs, CRMs, plataformas SaaS y automatización de procesos — para empresas en Ecuador y Latinoamérica. Consultoría tecnológica estratégica de principio a fin.',
+  title = "SHUK — Tecnología que amplifica | Software a medida, ERPs, CRMs y consultoría tecnológica",
+  description = "SHUK diseña y desarrolla software a medida — ERPs, CRMs, plataformas SaaS y automatización de procesos — para empresas en Ecuador y Latinoamérica. Consultoría tecnológica estratégica de principio a fin.",
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{title}</title>
-<meta name="description" content={description}>
-<meta name="theme-color" content="#222225">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#222225" />
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="SHUK">
-<meta property="og:title" content="SHUK — Tecnología que amplifica">
-<meta property="og:description" content="Software a medida, ERPs, CRMs, plataformas SaaS y consultoría tecnológica para empresas que quieren amplificarse.">
-<meta property="og:url" content={canonicalURL}>
-<meta property="og:locale" content="es_EC">
-<!-- TODO equipo de marketing: reemplazar con una imagen OG real de 1200x630px antes de publicar (src/pages/og-image.png o similar + <meta property="og:image">) -->
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SHUK — Tecnología que amplifica" />
+    <meta
+      property="og:description"
+      content="Software a medida, consultoría tecnológica y automatización para negocios que quieren crecer."
+    />
+    <meta property="og:image" content="https://www.shuktec.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://www.shuktec.com" />
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SHUK — Tecnología que amplifica">
-<meta name="twitter:description" content="Software a medida, ERPs, CRMs y consultoría tecnológica para empresas que quieren amplificarse.">
+    <!-- Twitter Card (X reutiliza casi todo de Open Graph, pero esto da control explícito ahí) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SHUK — Tecnología que amplifica" />
+    <meta
+      name="twitter:description"
+      content="Software a medida, consultoría tecnológica y automatización para negocios que quieren crecer."
+    />
+    <meta name="twitter:image" content="https://www.shuktec.com/og-image.png" />
 
-<link rel="canonical" href={canonicalURL}>
-<link rel="icon" type="image/png" href="/images/symbol-on-orange.png">
-<link rel="apple-touch-icon" href="/images/symbol-on-orange.png">
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href="/images/favicon-48.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/apple-touch-icon.png"
+    />
 
-<!-- Space Mono es la tipografía secundaria confirmada de marca (ver manual SHUK) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      @font-face {
+        font-family: "Space Mono";
+        src: url("/fonts/SpaceMono-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Space Mono";
+        src: url("/fonts/SpaceMono-Bold.ttf") format("truetype");
+        font-weight: 700;
+        font-display: swap;
+      }
+    </style>
 
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "SHUK",
-  "alternateName": "Smart Hub for Uplifting Knowledge",
-  "url": "https://www.shuktech.com",
-  "email": "shukcompany@gmail.com",
-  "description": "Empresa de soluciones tecnológicas a medida: ERPs, CRMs, plataformas SaaS, automatización de procesos y consultoría tecnológica estratégica.",
-  "slogan": "Tecnología que amplifica",
-  "areaServed": ["Ecuador", "Latinoamérica"]
-})}></script>
-</head>
-<body>
-  <a class="skip-link" href="#main">Saltar al contenido</a>
-  <slot />
-</body>
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "SHUK",
+        alternateName: "Smart Hub for Uplifting Knowledge",
+        url: "https://www.shuktec.com",
+        email: "shuktechcompany@gmail.com",
+        description:
+          "Empresa de soluciones tecnológicas a medida: ERPs, CRMs, plataformas SaaS, automatización de procesos y consultoría tecnológica estratégica.",
+        slogan: "Tecnología que amplifica",
+        areaServed: ["Ecuador", "Latinoamérica"],
+      })}
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+    <slot />
+  </body>
 </html>
 
 <script>
-  // Reveal on scroll — mejora progresiva. El CSS base (global.css) ya deja
-  // todo visible por defecto; esto solo AGREGA la animación de entrada.
-  // Ver references/accessibility-and-copyright.md (skill landing-page-builder,
-  // sección 3) sobre por qué nunca debe ocultarse contenido solo vía CSS.
-  const revealEls = document.querySelectorAll('.reveal, .process-step');
+  const revealEls = document.querySelectorAll(".reveal, .process-step");
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
-          e.target.classList.add('inview');
+          e.target.classList.add("inview");
           io.unobserve(e.target);
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.15 },
   );
   revealEls.forEach((el) => {
-    el.classList.add('reveal-armed');
+    el.classList.add("reveal-armed");
     io.observe(el);
   });
-  // Red de seguridad: si el observer no dispara para algún elemento, forzarlo visible igual.
   setTimeout(() => {
-    revealEls.forEach((el) => el.classList.add('inview'));
+    revealEls.forEach((el) => el.classList.add("inview"));
   }, 2500);
 </script>

@@ -1,11 +1,16 @@
 ---
+
 ---
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-top">
       <div>
-        <img src="/images/logo-wordmark.png" alt="SHUK">
-        <p>Tecnología que amplifica. Software a medida, consultoría tecnológica y automatización para negocios que quieren crecer.</p>
+        <img src="/images/logo-wordmark.png" alt="SHUK" />
+        <p>
+          Tecnología que amplifica. Software a medida, consultoría tecnológica y
+          automatización para negocios que quieren crecer.
+        </p>
       </div>
       <div class="footer-col">
         <h4>Navegación</h4>
@@ -21,22 +26,48 @@
       <div class="footer-col">
         <h4>Contacto</h4>
         <ul>
-          <li><a href="mailto:shuktechcompany@gmail.com">shuktechcompany@gmail.com</a></li>
-          <li><a href="https://www.shuktech.com" target="_blank" rel="noopener">www.shuktech.com</a></li>
-          <li><span>shuktec</span></li>
+          <li>
+            <a href="mailto:shuktechcompany@gmail.com"
+              >shuktechcompany@gmail.com</a
+            >
+          </li>
+          <li>
+            <a href="https://www.shuktec.com" target="_blank" rel="noopener"
+              >www.shuktec.com</a
+            >
+          </li>
+          <li><span>@shuktec</span></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="footer-legal">
-        <p class="made-with">Hecho con <span class="heart">🧡</span> en Quito, Ecuador</p>
-        <p class="legal-line">© <span id="year"></span> SHUK TECH S.A.S. · RUC 1793223785001 — empresa legalmente constituida en Ecuador. Todos los derechos reservados.</p>
+        <p class="made-with">
+          Hecho con <span class="heart">🧡</span> en Quito, Ecuador
+        </p>
+        <p class="legal-line">
+          © <span id="year"></span> SHUK TECH S.A.S. · RUC 1793223785001 — empresa
+          legalmente constituida en Ecuador. Todos los derechos reservados.
+        </p>
+        <p class="footer-legal-links">
+          <a href="/politica-de-privacidad" class="privacy-link"
+            >Política de privacidad</a
+          >
+          <span aria-hidden="true">·</span>
+          <button type="button" id="cookiePrefs" class="privacy-link"
+            >Preferencias de cookies</button
+          >
+        </p>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
-  const yearEl = document.getElementById('year') as HTMLElement;
+  const yearEl = document.getElementById("year") as HTMLElement;
   yearEl.textContent = String(new Date().getFullYear());
+
+  document.getElementById("cookiePrefs")?.addEventListener("click", () => {
+    document.getElementById("cookieBar")?.classList.add("show");
+  });
 </script>
