@@ -175,7 +175,13 @@ textarea:focus-visible {
   color: var(--orange);
 }
 
-.on-light .eyebrow {
+.on-light .eyebrow .num,
+.on-light-2 .eyebrow .num {
+  color: var(--terra);
+}
+
+.on-light .process-step .step-num,
+.on-light-2 .process-step .step-num {
   color: var(--terra);
 }
 
@@ -1757,7 +1763,7 @@ textarea:focus-visible {
 
 .form-status.ok {
   display: block;
-  background: rgba(166, 149, 119, .15); 
+  background: rgba(166, 149, 119, .15);
   color: #726350;
 }
 
@@ -1769,7 +1775,7 @@ textarea:focus-visible {
 
 .field input.invalid,
 .field textarea.invalid {
-  border-color: #FE5F38; 
+  border-color: #FE5F38;
   outline: none;
 }
 
@@ -1857,7 +1863,6 @@ textarea:focus-visible {
   margin: 0;
   font-size: 11px;
   color: var(--nimbus-2);
-  opacity: .5;
 }
 
 .privacy-link {
