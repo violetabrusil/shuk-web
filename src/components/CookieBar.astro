@@ -1,7 +1,17 @@
 ---
+
 ---
-<div class="cookie-bar" id="cookieBar" role="region" aria-label="Aviso de cookies">
-  <p style="margin:0;">Usamos cookies propias y de terceros para mejorar tu experiencia y medir el tráfico del sitio. <a href="#" id="cookieInfo">Más información</a>.</p>
+
+<div
+  class="cookie-bar"
+  id="cookieBar"
+  role="region"
+  aria-label="Aviso de cookies"
+>
+  <p style="margin:0;">
+    Usamos cookies propias y de terceros para mejorar tu experiencia y medir el
+    tráfico del sitio. <a href="#" id="cookieInfo">Más información</a>.
+  </p>
   <div class="cookie-actions">
     <button type="button" id="cookieReject">Rechazar</button>
     <button type="button" class="accept" id="cookieAccept">Aceptar</button>
@@ -9,31 +19,38 @@
 </div>
 
 <script>
-  // NOTA: el estado se guarda en memoria (no localStorage) por defecto.
-  // Al publicar el sitio en producción, cambiar a localStorage o a una
-  // cookie real para recordar la elección de la persona entre visitas.
-  const cookieBar = document.getElementById('cookieBar') as HTMLElement;
-  let cookieChoice: string | null = null;
+  const cookieBar = document.getElementById("cookieBar") as HTMLElement;
+  const CONSENT_KEY = "shuk_cookie_consent";
 
-  if (!cookieChoice) {
-    setTimeout(() => cookieBar.classList.add('show'), 700);
+  function activarAnalitica() {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-CZR9T98CWQ";
+    document.head.appendChild(script);
+
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    function gtag(...args: any[]) {
+      (window as any).dataLayer.push(args);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-CZR9T98CWQ");
   }
-  document.getElementById('cookieAccept')?.addEventListener('click', () => {
-    cookieChoice = 'accepted';
-    cookieBar.classList.remove('show');
+
+  const eleccionGuardada = localStorage.getItem(CONSENT_KEY);
+  if (!eleccionGuardada) {
+    setTimeout(() => cookieBar.classList.add("show"), 700);
+  } else if (eleccionGuardada === "accepted") {
+    activarAnalitica();
+  }
+
+  document.getElementById("cookieAccept")?.addEventListener("click", () => {
+    localStorage.setItem(CONSENT_KEY, "accepted");
+    cookieBar.classList.remove("show");
+    activarAnalitica();
   });
-  document.getElementById('cookieReject')?.addEventListener('click', () => {
-    cookieChoice = 'rejected';
-    cookieBar.classList.remove('show');
-  });
-  document.getElementById('cookieInfo')?.addEventListener('click', (ev) => {
-    ev.preventDefault();
-    alert(
-      'Aviso de privacidad — SHUK\n\n' +
-      'Este es un texto de marcador de posición. Antes de publicar el sitio, el equipo legal ' +
-      'debe reemplazarlo con la política de privacidad real: qué datos se recopilan en el ' +
-      'formulario de contacto, con qué fin se usan, y cómo se pueden solicitar su eliminación ' +
-      '(según la normativa de protección de datos de Ecuador y, si aplica, el RGPD).'
-    );
+
+  document.getElementById("cookieReject")?.addEventListener("click", () => {
+    localStorage.setItem(CONSENT_KEY, "rejected");
+    cookieBar.classList.remove("show");
   });
 </script>

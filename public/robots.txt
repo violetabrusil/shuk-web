@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.shuktech.com/sitemap-index.xml
+Sitemap: https://www.shuktec.com/sitemap-index.xml
