@@ -7,8 +7,8 @@ export interface Props {
 }
 
 const {
-  title = "SHUK — Tecnología que amplifica | Software a medida, ERPs, CRMs y consultoría tecnológica",
-  description = "SHUK diseña y desarrolla software a medida — ERPs, CRMs, plataformas SaaS y automatización de procesos — para empresas en Ecuador y Latinoamérica. Consultoría tecnológica estratégica de principio a fin.",
+  title = "SHUK | Desarrollo de software a medida en Ecuador",
+  description = "SHUK desarrolla software a medida, ERPs, CRMs, plataformas SaaS y soluciones de automatización para empresas en Ecuador y Latinoamérica.",
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -19,90 +19,130 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO principal -->
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#222225" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="SHUK — Tecnología que amplifica" />
-    <meta
-      property="og:description"
-      content="Software a medida, consultoría tecnológica y automatización para negocios que quieren crecer."
-    />
+    <meta property="og:site_name" content="SHUK" />
+    <meta property="og:locale" content="es_EC" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:image" content="https://www.shuktec.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:url" content="https://www.shuktec.com" />
+    <meta property="og:image:alt" content="SHUK — Tecnología que amplifica" />
+    <meta property="og:url" content={canonicalURL} />
 
-    <!-- Twitter Card (X reutiliza casi todo de Open Graph, pero esto da control explícito ahí) -->
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="SHUK — Tecnología que amplifica" />
-    <meta
-      name="twitter:description"
-      content="Software a medida, consultoría tecnológica y automatización para negocios que quieren crecer."
-    />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://www.shuktec.com/og-image.png" />
 
-    <link rel="canonical" href={canonicalURL} />
+    <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="/images/favicon-32.png"
     />
+
     <link
       rel="icon"
       type="image/png"
       sizes="48x48"
       href="/images/favicon-48.png"
     />
+
     <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="/images/apple-touch-icon.png"
     />
 
+    <!-- Fonts -->
     <style>
       @font-face {
         font-family: "Space Mono";
-        src: url("/fonts/SpaceMono-Regular.ttf") format("truetype");
+        src:
+          url("/fonts/SpaceMono-Regular.woff2") format("woff2"),
+          url("/fonts/SpaceMono-Regular.ttf") format("truetype");
         font-weight: 400;
         font-display: swap;
       }
+
       @font-face {
         font-family: "Space Mono";
-        src: url("/fonts/SpaceMono-Bold.ttf") format("truetype");
+        src:
+          url("/fonts/SpaceMono-Bold.woff2") format("woff2"),
+          url("/fonts/SpaceMono-Bold.ttf") format("truetype");
         font-weight: 700;
         font-display: swap;
       }
     </style>
-
+    <!-- Schema.org -->
     <script
       type="application/ld+json"
       set:html={JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Organization",
         name: "SHUK",
-        alternateName: "Smart Hub for Uplifting Knowledge",
+        alternateName: "SHUK TECH",
         url: "https://www.shuktec.com",
+        logo: "https://www.shuktec.com/images/logo.png",
         email: "shuktechcompany@gmail.com",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Quito",
+          addressCountry: "EC",
+        },
         description:
-          "Empresa de soluciones tecnológicas a medida: ERPs, CRMs, plataformas SaaS, automatización de procesos y consultoría tecnológica estratégica.",
+          "Empresa de soluciones tecnológicas a medida: desarrollo de software, ERPs, CRMs, plataformas SaaS, automatización de procesos y consultoría tecnológica.",
         slogan: "Tecnología que amplifica",
-        areaServed: ["Ecuador", "Latinoamérica"],
+        areaServed: [
+          {
+            "@type": "Country",
+            name: "Ecuador",
+          },
+          {
+            "@type": "Place",
+            name: "Latinoamérica",
+          },
+        ],
+        knowsAbout: [
+          "Desarrollo de software",
+          "Software a medida",
+          "ERP",
+          "CRM",
+          "SaaS",
+          "Automatización de procesos",
+          "Consultoría tecnológica",
+        ],
       })}
     />
   </head>
+
   <body>
     <a class="skip-link" href="#main">Saltar al contenido</a>
+
     <slot />
   </body>
 </html>
 
 <script>
   const revealEls = document.querySelectorAll(".reveal, .process-step");
+
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((e) => {
@@ -114,10 +154,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     },
     { threshold: 0.15 },
   );
+
   revealEls.forEach((el) => {
     el.classList.add("reveal-armed");
     io.observe(el);
   });
+
   setTimeout(() => {
     revealEls.forEach((el) => el.classList.add("inview"));
   }, 2500);
