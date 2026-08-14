@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout
+  title="Página no encontrada — SHUK"
+  description="La página que buscas no existe o se movió de lugar."
+>
+  <Header />
+  <main id="main">
+    <section class="hero" style="min-height: 60vh; display:flex; align-items:center;">
+      <div class="hero-inner" style="grid-template-columns: 1fr;">
+        <div style="text-align:center; max-width:640px; margin:0 auto;">
+          <div class="tagline-line">Error 404</div>
+          <h1 style="font-size: clamp(2.4rem, 7vw, 5rem);">Esta página se perdió en el camino.</h1>
+          <p class="lead" style="margin: 0 auto 2em; text-align:center;">
+            El enlace que seguiste no existe o se movió de lugar. Mientras lo revisamos,
+            volvamos a donde sí hay respuestas.
+          </p>
+          <div class="hero-ctas" style="justify-content:center;">
+            <a href="/" class="btn btn-primary">
+              Volver al inicio
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="/#contacto" class="btn btn-ghost-dark">Escríbenos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
