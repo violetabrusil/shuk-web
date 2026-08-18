@@ -4,11 +4,13 @@ import "../styles/global.css";
 export interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
 }
 
 const {
-  title = "SHUK | Desarrollo de software a medida en Ecuador",
-  description = "SHUK desarrolla software a medida, ERPs, CRMs, plataformas SaaS y soluciones de automatización para empresas en Ecuador y Latinoamérica.",
+  title = "SHUK | Primer hub tecnológico en Ecuador",
+  description = "SHUK es el hub tecnológico impulsado con IA que diseña software a medida y ofrece consultoría estratégica en Ecuador y Latinoamérica.",
+  noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -23,12 +25,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- SEO principal -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta
+      name="robots"
+      content={noindex ? "noindex, nofollow" : "index, follow"}
+    />
     <meta name="theme-color" content="#222225" />
 
     <!-- Canonical -->
     <link rel="canonical" href={canonicalURL} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Preload de la fuente usada en el h1 principal (Neue Regrade Bold), para mejorar el LCP -->
+    <link
+      rel="preload"
+      href="/fonts/NeueRegrade-Bold.otf"
+      as="font"
+      type="font/otf"
+      crossorigin
+    />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
