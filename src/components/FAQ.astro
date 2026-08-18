@@ -1,5 +1,42 @@
 ---
+const faqs = [
+  {
+    q: "¿Cuánto tiempo toma desarrollar mi solución?",
+    a: "Depende del alcance. Por eso nuestro proceso siempre comienza con entender tu negocio y evaluar tu tecnología actual antes de proponer un camino —así definimos juntos un cronograma realista para tu proyecto, no una estimación genérica.",
+  },
+  {
+    q: "¿Trabajan con negocios que ya tienen un sistema?",
+    a: "Sí. Evaluamos la tecnología existente y definimos si conviene potenciarla, integrarla con nuevas herramientas o migrarla por completo —según lo que realmente necesite tu operación.",
+  },
+  {
+    q: "¿En qué industrias tienen experiencia?",
+    a: "Desarrollamos soluciones para sectores tan distintos como automotriz, salud, educación, gobierno, retail, gastronomía, bienes raíces, mascotas, logística y finanzas. Cada solución se adapta a la realidad de cada negocio, no al revés.",
+  },
+  {
+    q: "¿Qué pasa después de que se lanza el software?",
+    a: "No desaparecemos después de la entrega. Acompañamos con soporte técnico, actualizaciones y mejoras constantes, y capacitamos a tu equipo para que domine cada herramienta.",
+  },
+  {
+    q: "¿Cómo empezamos?",
+    a: "Escríbenos y conversemos sobre tu negocio. Antes de proponerte cualquier solución, queremos entender tu realidad —sin tecnicismos.",
+  },
+];
 ---
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: f.a,
+      },
+    })),
+  })}
+/>
 <section class="section on-light" id="faq">
   <div class="container">
     <div class="section-head">
@@ -7,26 +44,17 @@
       <h2>Antes de escribirnos, quizás esto ayude.</h2>
     </div>
     <div class="faq">
-      <details>
-        <summary>¿Cuánto tiempo toma desarrollar mi solución?<span class="plus"></span></summary>
-        <p class="a">Depende del alcance. Por eso nuestro proceso siempre comienza con entender tu negocio y evaluar tu tecnología actual antes de proponer un camino —así definimos juntos un cronograma realista para tu proyecto, no una estimación genérica.</p>
-      </details>
-      <details>
-        <summary>¿Trabajan con negocios que ya tienen un sistema?<span class="plus"></span></summary>
-        <p class="a">Sí. Evaluamos la tecnología existente y definimos si conviene potenciarla, integrarla con nuevas herramientas o migrarla por completo —según lo que realmente necesite tu operación.</p>
-      </details>
-      <details>
-        <summary>¿En qué industrias tienen experiencia?<span class="plus"></span></summary>
-        <p class="a">Desarrollamos soluciones para sectores tan distintos como automotriz, salud, educación, gobierno, retail, gastronomía, bienes raíces, mascotas, logística y finanzas. Cada solución se adapta a la realidad de cada negocio, no al revés.</p>
-      </details>
-      <details>
-        <summary>¿Qué pasa después de que se lanza el software?<span class="plus"></span></summary>
-        <p class="a">No desaparecemos después de la entrega. Acompañamos con soporte técnico, actualizaciones y mejoras constantes, y capacitamos a tu equipo para que domine cada herramienta.</p>
-      </details>
-      <details>
-        <summary>¿Cómo empezamos?<span class="plus"></span></summary>
-        <p class="a">Escríbenos y conversemos sobre tu negocio. Antes de proponerte cualquier solución, queremos entender tu realidad —sin tecnicismos.</p>
-      </details>
+      {
+        faqs.map((f) => (
+          <details>
+            <summary>
+              {f.q}
+              <span class="plus" />
+            </summary>
+            <p class="a">{f.a}</p>
+          </details>
+        ))
+      }
     </div>
   </div>
 </section>

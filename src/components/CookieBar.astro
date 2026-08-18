@@ -10,7 +10,8 @@
 >
   <p style="margin:0;">
     Usamos cookies propias y de terceros para mejorar tu experiencia y medir el
-    tráfico del sitio. <a href="#" id="cookieInfo">Más información</a>.
+    tráfico del sitio.
+    <a href="/politica-de-privacidad">Más información</a>.
   </p>
   <div class="cookie-actions">
     <button type="button" id="cookieReject">Rechazar</button>
@@ -44,13 +45,19 @@
   }
 
   document.getElementById("cookieAccept")?.addEventListener("click", () => {
-    localStorage.setItem(CONSENT_KEY, "accepted");
     cookieBar.classList.remove("show");
-    activarAnalitica();
+    try {
+      localStorage.setItem(CONSENT_KEY, "accepted");
+    } catch {}
+    try {
+      activarAnalitica();
+    } catch {}
   });
 
   document.getElementById("cookieReject")?.addEventListener("click", () => {
-    localStorage.setItem(CONSENT_KEY, "rejected");
     cookieBar.classList.remove("show");
+    try {
+      localStorage.setItem(CONSENT_KEY, "rejected");
+    } catch {}
   });
 </script>
